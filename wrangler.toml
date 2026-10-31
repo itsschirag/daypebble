@@ -6,4 +6,4 @@ compatibility_date = "2026-10-01"
 [[d1_databases]]
 binding = "DB"
 database_name = "daypebble"
-database_id = "REPLACE_WITH_ID_FROM_wrangler_d1_create"
+database_id = "12ebad30-5a9d-4c6b-9189-19da446e7eac"
