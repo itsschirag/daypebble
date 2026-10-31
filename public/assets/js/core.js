@@ -3,8 +3,8 @@
 
 export const SITE = {
   name: 'Daypebble',
-  origin: 'https://daypebble.com',
-  launch: '2026-10-01', // puzzle #1 — set to your launch day
+  origin: 'https://daypebble.pages.dev',
+  launch: '2026-10-31', // puzzle #1 — set to your launch day
 };
 
 // ---------- dates ----------
