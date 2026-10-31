@@ -61,6 +61,6 @@ test('challenge links round-trip and reject junk', () => {
 });
 
 test('puzzle numbers count from launch', () => {
-  assert.equal(puzzleNumber('2026-10-01'), 1);
-  assert.equal(puzzleNumber('2026-11-01'), 32);
+  assert.equal(puzzleNumber('2026-10-31'), 1);
+  assert.equal(puzzleNumber('2026-11-01'), 2);
 });
