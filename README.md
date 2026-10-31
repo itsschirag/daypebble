@@ -89,3 +89,17 @@ schedule (GitHub Action with a Cloudflare API token secret).
 
 Nicknames go through a small blocklist in `functions/api/score.js`. To hide one:
 `npx wrangler d1 execute daypebble --remote --command "UPDATE scores SET hidden=1 WHERE nick='...'"`.
+
+## Habit design (why these features exist)
+
+| Feature | Habit lever | Where |
+| --- | --- | --- |
+| **Call it**: predict your score before each pebble | Commitment and a second mini-game; a correct call adds 🎯 to your share | `habits.js` BUCKETS, `app.js` renderGame |
+| **Mystery pebble**: finishing all 3 reveals a random collectible | Variable reward; odds improve with each correct call that day | `rollPebble` |
+| **Pebble jar** on the home page | Investment: a collection you don't want to abandon | `jar()` |
+| **Tomorrow's sneak peek**: blurred colour + Sumtrail target range, midnight countdown | Curiosity gap and a cue to return | `renderHome` |
+| **"1 of 3 done" meter** | Endowed progress / goal gradient | `renderHome` |
+| **Streak freezes**: earn one every 7 days, hold up to 2 | Loss aversion without punishing one slip | `maybeEarnFreeze`, `applyFreezes` |
+
+Rewards are deterministic per player and day, so refreshing can't reroll them.
+Nothing is pay-to-win, and nothing uses dark patterns such as fake scarcity.

@@ -102,15 +102,24 @@ write('index.html', layout({
 <p class="kicker">Today's pebbles <span data-num></span></p>
 <h1>Three tiny puzzles. Same for everyone.</h1>
 <p class="muted" data-date></p>
+<div class="progress" data-progress></div>
 <div class="cards" data-cards></div>
 <h2>Your week</h2>
 <ol class="week" data-week></ol>
+<section class="teaser" data-teaser></section>
+<section id="jar">
+  <h2>Your pebble jar</h2>
+  <p class="muted" data-calls></p>
+  <ul class="jar" data-jar></ul>
+</section>
 <section class="faq seo">
   <h2>How Daypebble works</h2>
   <details open><summary>What is a pebble?</summary><p>A pebble is a small original puzzle you can finish in one to three minutes. There are three every day, generated for that date, so everyone in the world gets the same ones.</p></details>
   <details><summary>Do I need an account?</summary><p>No. Your streak and scores are saved on this device. Add a nickname only if you want to appear on the daily leaderboard.</p></details>
   <details><summary>How do friend challenges work?</summary><p>After you finish, tap "Challenge a friend". They get a link to the same puzzle with your score to beat.</p></details>
-  <details><summary>Missed a day?</summary><p>Play past days in the <a href="/archive/">archive</a>. Archive plays don't count towards your streak.</p></details>
+  <details><summary>Missed a day?</summary><p>Play past days in the <a href="/archive/">archive</a>. Archive plays don't count towards your streak. Every 7-day streak earns a streak freeze (you can hold two), which automatically covers a missed day.</p></details>
+  <details><summary>What is "Call it"?</summary><p>Before each pebble you can predict your score. Call it right and you earn a 🎯 in your share, and better odds of a rare pebble when you finish all three.</p></details>
+  <details><summary>What are mystery pebbles?</summary><p>Finish all three puzzles to crack open a collectible pebble for your jar. Most are common; a few are rare, and legendary ones are about one in a hundred.</p></details>
 </section>`,
 }));
 
@@ -130,6 +139,7 @@ for (const g of GAMES) {
     body: `
 <div class="gamebar"><p class="kicker">${g.name} <span data-num></span></p><span class="clock" data-clock>${g.scoring === 'time' ? '0:00' : ''}</span></div>
 <h1>${g.name}</h1>
+<p class="callpill" data-callpill hidden></p>
 <div class="banner" data-banner hidden></div>
 <div class="stage" data-stage></div>
 <div class="result" data-result hidden></div>

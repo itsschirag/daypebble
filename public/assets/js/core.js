@@ -102,12 +102,15 @@ export function daysPlayed() {
 
 // A day counts towards the streak if at least one of that day's pebbles was
 // solved ON that day (archive plays do not count).
-export function streak(today = todayKey()) {
-  const results = load().results || {};
-  const live = (k) => Object.values(results[k] || {}).some((r) => r.live);
-  let day = live(today) ? today : addDays(today, -1);
+// Days covered by a streak freeze keep the streak alive but don't add to it.
+export function isLiveDay(key) {
+  return Object.values(load().results?.[key] || {}).some((r) => r.live);
+}
+export function streak(today = todayKey(), frozen = []) {
+  const ok = (k) => isLiveDay(k) || frozen.includes(k);
+  let day = isLiveDay(today) ? today : addDays(today, -1);
   let n = 0;
-  while (live(day)) { n++; day = addDays(day, -1); }
+  while (ok(day)) { if (isLiveDay(day)) n++; day = addDays(day, -1); }
   return n;
 }
 
