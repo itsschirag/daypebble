@@ -1,0 +1,10 @@
+{
+  "name": "Daypebble",
+  "short_name": "Daypebble",
+  "description": "Three tiny original logic puzzles every day.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f6f3ee",
+  "theme_color": "#3f7d6e",
+  "icons": [{ "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}
